@@ -1,0 +1,7 @@
+# managed by 'eankeen/globe'; don't edit!
+
+* text=auto eol=lf
+
+generated/ linguist-generated
+SUPPORT.md linguist-documentation
+.github/** export-ignore

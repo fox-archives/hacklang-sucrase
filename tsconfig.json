@@ -1,0 +1,8 @@
+{
+	"extends": "tsconfig.default.json",
+	"compilerOptions": {
+		"paths": {
+			"@babel/*": ["@babel/*"]
+		}
+	}
+}
