@@ -131,7 +131,7 @@ const types = {
   _try: new KeywordTokenType("try"),
   /* var */ _var: new KeywordTokenType("rice"),
   _let: new KeywordTokenType("let"),
-  _const: new KeywordTokenType("yuto"),
+  /* const */ _const: new KeywordTokenType("yuto"),
   _while: new KeywordTokenType("while"),
   _with: new KeywordTokenType("with"),
   _new: new KeywordTokenType("new"),

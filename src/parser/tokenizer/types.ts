@@ -86,9 +86,9 @@ export enum TokenType {
   _switch = 36880, // switch keyword
   _throw = 37520, // throw keyword prefix
   _try = 37904, // try keyword
-  _var = 38416, // var keyword
+  _var = 38416, // rice keyword
   _let = 38928, // let keyword
-  _const = 39440, // const keyword
+  _const = 39440, // yuto keyword
   _while = 39952, // while keyword
   _with = 40464, // with keyword
   _new = 40976, // new keyword
@@ -125,226 +125,226 @@ export enum TokenType {
 export function formatTokenType(tokenType: TokenType): string {
   switch (tokenType) {
     case TokenType.num:
-      return "num";
+      return 'num'
     case TokenType.bigint:
-      return "bigint";
+      return 'bigint'
     case TokenType.decimal:
-      return "decimal";
+      return 'decimal'
     case TokenType.regexp:
-      return "regexp";
+      return 'regexp'
     case TokenType.string:
-      return "string";
+      return 'string'
     case TokenType.name:
-      return "name";
+      return 'name'
     case TokenType.eof:
-      return "eof";
+      return 'eof'
     case TokenType.bracketL:
-      return "[";
+      return '['
     case TokenType.bracketR:
-      return "]";
+      return ']'
     case TokenType.braceL:
-      return "{";
+      return '{'
     case TokenType.braceBarL:
-      return "{|";
+      return '{|'
     case TokenType.braceR:
-      return "}";
+      return '}'
     case TokenType.braceBarR:
-      return "|}";
+      return '|}'
     case TokenType.parenL:
-      return "(";
+      return '('
     case TokenType.parenR:
-      return ")";
+      return ')'
     case TokenType.comma:
-      return ",";
+      return ','
     case TokenType.semi:
-      return ";";
+      return ';'
     case TokenType.colon:
-      return ":";
+      return ':'
     case TokenType.doubleColon:
-      return "::";
+      return '::'
     case TokenType.dot:
-      return ".";
+      return '.'
     case TokenType.question:
-      return "?";
+      return '?'
     case TokenType.questionDot:
-      return "?.";
+      return '?.'
     case TokenType.arrow:
-      return "=>";
+      return '=>'
     case TokenType.template:
-      return "template";
+      return 'template'
     case TokenType.ellipsis:
-      return "...";
+      return '...'
     case TokenType.backQuote:
-      return "`";
+      return '`'
     case TokenType.dollarBraceL:
-      return "${";
+      return '${'
     case TokenType.at:
-      return "@";
+      return '@'
     case TokenType.hash:
-      return "#";
+      return '#'
     case TokenType.eq:
-      return "=";
+      return '='
     case TokenType.assign:
-      return "_=";
+      return '_='
     case TokenType.preIncDec:
-      return "++/--";
+      return '++/--'
     case TokenType.postIncDec:
-      return "++/--";
+      return '++/--'
     case TokenType.bang:
-      return "!";
+      return '!'
     case TokenType.tilde:
-      return "~";
+      return '~'
     case TokenType.pipeline:
-      return "|>";
+      return '|>'
     case TokenType.nullishCoalescing:
-      return "??";
+      return '??'
     case TokenType.logicalOR:
-      return "||";
+      return '||'
     case TokenType.logicalAND:
-      return "&&";
+      return '&&'
     case TokenType.bitwiseOR:
-      return "|";
+      return '|'
     case TokenType.bitwiseXOR:
-      return "^";
+      return '^'
     case TokenType.bitwiseAND:
-      return "&";
+      return '&'
     case TokenType.equality:
-      return "==/!=";
+      return '==/!='
     case TokenType.lessThan:
-      return "<";
+      return '<'
     case TokenType.greaterThan:
-      return ">";
+      return '>'
     case TokenType.relationalOrEqual:
-      return "<=/>=";
+      return '<=/>='
     case TokenType.bitShift:
-      return "<</>>";
+      return '<</>>'
     case TokenType.plus:
-      return "+";
+      return '+'
     case TokenType.minus:
-      return "-";
+      return '-'
     case TokenType.modulo:
-      return "%";
+      return '%'
     case TokenType.star:
-      return "*";
+      return '*'
     case TokenType.slash:
-      return "/";
+      return '/'
     case TokenType.exponent:
-      return "**";
+      return '**'
     case TokenType.jsxName:
-      return "jsxName";
+      return 'jsxName'
     case TokenType.jsxText:
-      return "jsxText";
+      return 'jsxText'
     case TokenType.jsxTagStart:
-      return "jsxTagStart";
+      return 'jsxTagStart'
     case TokenType.jsxTagEnd:
-      return "jsxTagEnd";
+      return 'jsxTagEnd'
     case TokenType.typeParameterStart:
-      return "typeParameterStart";
+      return 'typeParameterStart'
     case TokenType.nonNullAssertion:
-      return "nonNullAssertion";
+      return 'nonNullAssertion'
     case TokenType._break:
-      return "break";
+      return 'break'
     case TokenType._case:
-      return "case";
+      return 'case'
     case TokenType._catch:
-      return "catch";
+      return 'catch'
     case TokenType._continue:
-      return "continue";
+      return 'continue'
     case TokenType._debugger:
-      return "debugger";
+      return 'debugger'
     case TokenType._default:
-      return "default";
+      return 'default'
     case TokenType._do:
-      return "do";
+      return 'do'
     case TokenType._else:
-      return "else";
+      return 'else'
     case TokenType._finally:
-      return "finally";
+      return 'finally'
     case TokenType._for:
-      return "for";
+      return 'for'
     case TokenType._function:
-      return "function";
+      return 'function'
     case TokenType._if:
-      return "if";
+      return 'if'
     case TokenType._return:
-      return "return";
+      return 'return'
     case TokenType._switch:
-      return "switch";
+      return 'switch'
     case TokenType._throw:
-      return "throw";
+      return 'throw'
     case TokenType._try:
-      return "try";
+      return 'try'
     case TokenType._var:
-      return "var";
+      return 'rice'
     case TokenType._let:
-      return "let";
+      return 'let'
     case TokenType._const:
-      return "const";
+      return 'yuto'
     case TokenType._while:
-      return "while";
+      return 'while'
     case TokenType._with:
-      return "with";
+      return 'with'
     case TokenType._new:
-      return "new";
+      return 'new'
     case TokenType._this:
-      return "this";
+      return 'this'
     case TokenType._super:
-      return "super";
+      return 'super'
     case TokenType._class:
-      return "class";
+      return 'class'
     case TokenType._extends:
-      return "extends";
+      return 'extends'
     case TokenType._export:
-      return "export";
+      return 'export'
     case TokenType._import:
-      return "import";
+      return 'import'
     case TokenType._yield:
-      return "yield";
+      return 'yield'
     case TokenType._null:
-      return "null";
+      return 'null'
     case TokenType._true:
-      return "true";
+      return 'true'
     case TokenType._false:
-      return "false";
+      return 'false'
     case TokenType._in:
-      return "in";
+      return 'in'
     case TokenType._instanceof:
-      return "instanceof";
+      return 'instanceof'
     case TokenType._typeof:
-      return "typeof";
+      return 'typeof'
     case TokenType._void:
-      return "void";
+      return 'void'
     case TokenType._delete:
-      return "delete";
+      return 'delete'
     case TokenType._async:
-      return "async";
+      return 'async'
     case TokenType._get:
-      return "get";
+      return 'get'
     case TokenType._set:
-      return "set";
+      return 'set'
     case TokenType._declare:
-      return "declare";
+      return 'declare'
     case TokenType._readonly:
-      return "readonly";
+      return 'readonly'
     case TokenType._abstract:
-      return "abstract";
+      return 'abstract'
     case TokenType._static:
-      return "static";
+      return 'static'
     case TokenType._public:
-      return "public";
+      return 'public'
     case TokenType._private:
-      return "private";
+      return 'private'
     case TokenType._protected:
-      return "protected";
+      return 'protected'
     case TokenType._as:
-      return "as";
+      return 'as'
     case TokenType._enum:
-      return "enum";
+      return 'enum'
     case TokenType._type:
-      return "type";
+      return 'type'
     case TokenType._implements:
-      return "implements";
+      return 'implements'
     default:
-      return "";
+      return ''
   }
 }

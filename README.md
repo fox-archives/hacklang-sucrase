@@ -26,3 +26,5 @@ pnpm build
 # test
 node examples/sucrase-cli/input.js
 ```
+
+To implement `constructor()` transformations, we'll have to create a custom transformer under `src/parser/transformer/`

@@ -31,7 +31,7 @@ const KEYWORDS = [
   "in",
   "this",
   "let",
-  "const",
+  /* const */ "yuto",
   "class",
   "extends",
   "export",
@@ -127,9 +127,10 @@ export default function generateReadWordTree(): string {
     // Fill in first index.
     const keywordNode = nodesByPrefix[name];
     let name2 = name
-    console.info(name)
     if (name == "rice") {
       name2 = "var"
+    } else if (name == "yuto") {
+      name2 = "const"
     }
     if (isContextual) {
       keywordNode.data[0] = `ContextualKeyword._${name2} << 1`;

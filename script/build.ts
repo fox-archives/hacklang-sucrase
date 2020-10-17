@@ -4,7 +4,7 @@ import mergeDirectoryContents from "./mergeDirectoryContents";
 import run from "./run";
 
 const SUCRASE = "./node_modules/.bin/sucrase";
-const SUCRASE_SELF = "./bin/sucrase";
+// const SUCRASE_SELF = "./bin/sucrase";
 const TSC = "./node_modules/.bin/tsc";
 
 // Fast mode is useful for development. It runs all builds in parallel and does not generate types
@@ -41,17 +41,17 @@ async function buildSucrase(): Promise<void> {
     // the previous version, then use it to compile the current code, then use that to compile the
     // code again. The second and third outputs should be exactly identical; otherwise we may have a
     // problem where it miscompiled itself.
-    await run(`${SUCRASE_SELF} ./src -d ./dist-self-build --transforms imports,typescript -q`);
-    await run(
-      `${SUCRASE_SELF} ./src -d ./dist-self-build --transforms typescript --out-extension mjs -q`,
-    );
-    await run("rm -rf ./dist");
-    await run("mv ./dist-self-build ./dist");
-    await run(`${SUCRASE_SELF} ./src -d ./dist-self-build --transforms imports,typescript -q`);
-    await run(
-      `${SUCRASE_SELF} ./src -d ./dist-self-build --transforms typescript --out-extension mjs -q`,
-    );
-    await run("diff -r ./dist ./dist-self-build");
+    // await run(`${SUCRASE_SELF} ./src -d ./dist-self-build --transforms imports,typescript -q`);
+    // await run(
+      // `${SUCRASE_SELF} ./src -d ./dist-self-build --transforms typescript --out-extension mjs -q`,
+    // );
+    // await run("rm -rf ./dist");
+    // await run("mv ./dist-self-build ./dist");
+    // await run(`${SUCRASE_SELF} ./src -d ./dist-self-build --transforms imports,typescript -q`);
+    // await run(
+      // `${SUCRASE_SELF} ./src -d ./dist-self-build --transforms typescript --out-extension mjs -q`,
+    // );
+    // await run("diff -r ./dist ./dist-self-build");
     // Also add in .d.ts files from tsc, which only need to be compiled once.
     await run(
       `${TSC} --emitDeclarationOnly --declaration --isolatedModules false --project ./src --outDir ./dist-types`,
