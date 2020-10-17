@@ -4,8 +4,13 @@ An actual working implementation of [hacklang](https://github.com/hackclub/hackl
 
 ## Usage
 
-See `./examples/` to use it with webpack, with a node project (coming soon) or with CRA
+```sh
+yarn add -D hacklang-sucrase
+# or
+yarn add -D hacklang-sucrase-webpack-loader
+```
 
+See `./examples/` to use it with webpack, with a node project (coming soon) or with CRA
 
 ## Contributing
 
