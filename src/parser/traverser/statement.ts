@@ -644,7 +644,7 @@ export function parseClass(isStatement: boolean, optionalId: boolean = false): v
   // Put a context ID on the class keyword, the open-brace, and the close-brace, so that later
   // code can easily navigate to meaningful points on the class.
   const contextId = getNextContextId();
-
+  console.info("FF", contextId)
   next();
   state.tokens[state.tokens.length - 1].contextId = contextId;
   state.tokens[state.tokens.length - 1].isExpression = !isStatement;

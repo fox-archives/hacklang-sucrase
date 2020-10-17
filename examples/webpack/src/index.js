@@ -1,3 +1,3 @@
-josh foo from './bar'
+import aa from './bar'
 
 yuto a = 4

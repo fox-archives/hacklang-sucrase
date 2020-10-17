@@ -2,7 +2,8 @@ const { transform } = require('../../')
 
 const code = `rice a4 = 1;
 yuto a3 = 2;
-aditya {}
+// let a = aditya {}
+// aditya aname {}
 carrot new Error()
 `
 

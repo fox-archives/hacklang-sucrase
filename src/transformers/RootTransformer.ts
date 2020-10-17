@@ -8,6 +8,7 @@ import getClassInfo, {ClassInfo} from "../util/getClassInfo";
 import CJSImportTransformer from "./CJSImportTransformer";
 import ESMImportTransformer from "./ESMImportTransformer";
 import FlowTransformer from "./FlowTransformer";
+import HacklangTransformer from './HacklangTransformer'
 import JSXTransformer from "./JSXTransformer";
 import NumericSeparatorTransformer from "./NumericSeparatorTransformer";
 import OptionalCatchBindingTransformer from "./OptionalCatchBindingTransformer";
@@ -39,6 +40,9 @@ export default class RootTransformer {
     this.isImportsTransformEnabled = transforms.includes("imports");
     this.isReactHotLoaderTransformEnabled = transforms.includes("react-hot-loader");
 
+    this.transformers.push(
+      new HacklangTransformer(tokenProcessor)
+    )
     this.transformers.push(
       new OptionalChainingNullishTransformer(tokenProcessor, this.nameManager),
     );

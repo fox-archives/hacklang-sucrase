@@ -1,7 +1,5 @@
 let path = require('path')
 
-const plugin = path.join(__dirname, '../../babel/examples/plugin/index.js')
-
 /**
  * @type {import("@types/webpack").Configuration} config
  */
@@ -11,10 +9,10 @@ module.exports = {
 		rules: [
 			{
 				test: /.js$/,
-				loader: require.resolve(path.join(__dirname, '../../babel-loader')),
+				loader: require.resolve(path.join(__dirname, '../../integrations/webpack-loader')),
 				options: {
-					plugins: [plugin],
-				},
+					transforms: []
+				}
 			},
 		],
 	},
