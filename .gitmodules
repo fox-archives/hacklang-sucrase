@@ -1,6 +1,3 @@
-[submodule "babel"]
-	path = babel
-	url = git@github.com:eankeen/babel
-[submodule "babel-loader"]
-	path = babel-loader
-	url = git@github.com:eankeen/babel-loader
+[submodule "packages/sucrase"]
+	path = packages/sucrase
+	url = https://github.com/alangpierce/sucrase
