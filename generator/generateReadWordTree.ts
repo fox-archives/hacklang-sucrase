@@ -17,7 +17,7 @@ const KEYWORDS = [
   "switch",
   "throw",
   "try",
-  "var",
+  /* "var" */ "rice",
   "while",
   "with",
   "null",
@@ -123,12 +123,18 @@ export default function generateReadWordTree(): string {
   });
 
   for (const {name, isContextual} of ALL_KEYWORDS) {
+
     // Fill in first index.
     const keywordNode = nodesByPrefix[name];
+    let name2 = name
+    console.info(name)
+    if (name == "rice") {
+      name2 = "var"
+    }
     if (isContextual) {
-      keywordNode.data[0] = `ContextualKeyword._${name} << 1`;
+      keywordNode.data[0] = `ContextualKeyword._${name2} << 1`;
     } else {
-      keywordNode.data[0] = `(tt._${name} << 1) + 1`;
+      keywordNode.data[0] = `(tt._${name2} << 1) + 1`;
     }
 
     // The later indices are transitions by lowercase letter.

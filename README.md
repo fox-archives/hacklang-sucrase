@@ -14,8 +14,15 @@ cd hacklang-sucrase
 
 pnpm i
 pnpm i -D tslib
+pnpm generate
 pnpm build
 
-#
+# see generator/generateTokenTypes.ts, parser/tokenizer/types.ts,
+# generator/generateReadWordTree.ts
+# anything else if necessary, then modify that, and
+
 pnpm generate
+pnpm build
+# test
+node examples/sucrase-cli/input.js
 ```
