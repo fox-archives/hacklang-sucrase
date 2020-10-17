@@ -1,13 +1,21 @@
 # hacklang
 
-The main repository. Right now, we support partial syntax and you can use it with Webpack or Babel. Import statements don't work when using Webpack.
+This is a fork of [Sucrase](https://github.com/alangpierce/sucrase)
 
-See usage examples in `./examples`; only `babel-cli` and `webpack` work right now. Working on CRA and Next support
+## Usage
 
-## Prerequisites
+See `./examples`. No examples work, really as of yet
 
-### Package Managers
+## Contributing
 
--  `./babel` uses Yarn Berry
--  `./babel-loader` uses Yarn
--  `./examples` and `./packages` use Yarn
+```sh
+git clone git@github.com:eankeen/hacklang-sucrace
+cd hacklang-sucrase
+
+pnpm i
+pnpm i -D tslib
+pnpm build
+
+#
+pnpm generate
+```

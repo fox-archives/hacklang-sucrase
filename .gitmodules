@@ -1,3 +1,0 @@
-[submodule "packages/sucrase"]
-	path = packages/sucrase
-	url = https://github.com/alangpierce/sucrase

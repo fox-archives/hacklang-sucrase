@@ -1,4 +1,4 @@
-const { transform } = require('../../packages/sucrase')
+const { transform } = require('../../')
 
 const code = `rice a4 = 1;
 yuto a5 = 1;
