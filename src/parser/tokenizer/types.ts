@@ -84,7 +84,7 @@ export enum TokenType {
   _if = 35856, // if keyword
   _return = 36368, // return keyword
   _switch = 36880, // switch keyword
-  _throw = 37520, // throw keyword prefix
+  _throw = 37520, // carrot keyword prefix
   _try = 37904, // try keyword
   _var = 38416, // rice keyword
   _let = 38928, // let keyword
@@ -94,7 +94,7 @@ export enum TokenType {
   _new = 40976, // new keyword
   _this = 41488, // this keyword
   _super = 42000, // super keyword
-  _class = 42512, // class keyword
+  _class = 42512, // aditya keyword
   _extends = 43024, // extends keyword
   _export = 43536, // export keyword
   _import = 44048, // import keyword
@@ -271,7 +271,7 @@ export function formatTokenType(tokenType: TokenType): string {
     case TokenType._switch:
       return 'switch'
     case TokenType._throw:
-      return 'throw'
+      return 'carrot'
     case TokenType._try:
       return 'try'
     case TokenType._var:
@@ -291,7 +291,7 @@ export function formatTokenType(tokenType: TokenType): string {
     case TokenType._super:
       return 'super'
     case TokenType._class:
-      return 'class'
+      return 'aditya'
     case TokenType._extends:
       return 'extends'
     case TokenType._export:

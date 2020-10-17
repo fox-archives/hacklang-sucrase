@@ -15,7 +15,7 @@ const KEYWORDS = [
   "if",
   "return",
   "switch",
-  "throw",
+  /* throw */ "carrot",
   "try",
   /* "var" */ "rice",
   "while",
@@ -32,7 +32,7 @@ const KEYWORDS = [
   "this",
   "let",
   /* const */ "yuto",
-  "class",
+  /* class */ "aditya",
   "extends",
   "export",
   "import",
@@ -131,7 +131,12 @@ export default function generateReadWordTree(): string {
       name2 = "var"
     } else if (name == "yuto") {
       name2 = "const"
+    } else if (name == "aditya") {
+      name2 = "class"
+    } else if (name == "carrot") {
+      name2 = "throw"
     }
+
     if (isContextual) {
       keywordNode.data[0] = `ContextualKeyword._${name2} << 1`;
     } else {
