@@ -4,13 +4,12 @@ An actual working implementation of [hacklang](https://github.com/hackclub/hackl
 
 ## Usage
 
+See `./examples/` to use it with webpack, with a node project (coming soon) or with CRA
 
 
 ## Contributing
 
 ### Setup
-
-Make sure you install Yarn
 
 ```sh
 git clone https://github.com/eankeen/hacklang-sucrose
@@ -24,7 +23,7 @@ yarn build
 
 ### Adding Your Keyword
 
-Note: For reference, see the `var` -> `rice`, `const` -> `yuto`, `class` -> `aditya`, and `throw` -> token transformations
+Note: For reference, see the `var` -> `rice`, `const` -> `yuto`, `class` -> `aditya` (partially), and `throw` -> `carrot`
 
 1. Edit keyword entry in `KEYWORDS` variable in `generator/generateReadWordTree.ts`. Make sure to prepend a comment!
 
@@ -51,8 +50,17 @@ yarn build
 
 ```sh
 node examples/sucrase-cli/input.js
+( cd examples/webpack && yarn webpack )
+( cd examples/create-react-app && yarn start )
+
 ```
 
 8. Commit changes and make a PR 😝
 
 Note that although the setup for above should work for most of the keywords, entities such as `=`, `super()`, `constructor()` and possibly `this` may require a custom transformation under `src/parser/transformers/HacklangTransformer.ts`
+
+## Roadmap
+
+- create webpack plugin to auto modify CRA config
+- create example for node using our @sucrase/register
+- add more keywords

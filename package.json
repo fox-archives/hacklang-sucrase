@@ -1,8 +1,8 @@
 {
-  "name": "sucrase",
+  "name": "hacklang-sucrase",
   "version": "3.16.0",
   "description": "Super-fast alternative to Babel for when you can target modern JS runtimes",
-  "author": "Alan Pierce <alangpierce@gmail.com>",
+  "author": "Edwin Kofler",
   "license": "MIT",
   "main": "dist/index",
   "module": "dist/index.mjs",
