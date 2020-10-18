@@ -68,7 +68,7 @@ async function buildIntegration(path: string): Promise<void> {
     const originalDir = process.cwd();
     process.chdir(path);
     await run("yarn");
-    await run("yarn link sucrase");
+    await run("yarn link hacklang-sucrase");
     process.chdir(originalDir);
   }
 
@@ -91,7 +91,7 @@ async function buildWebsite(): Promise<void> {
     const originalDir = process.cwd();
     process.chdir("./website");
     await run("yarn");
-    await run("yarn link sucrase");
+    await run("yarn link hacklang-sucrase");
     process.chdir(originalDir);
   }
 }

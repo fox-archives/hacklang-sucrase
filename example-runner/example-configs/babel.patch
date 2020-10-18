@@ -23,10 +23,10 @@ index c8a60079b..b49041ae6 100644
 @@ -105,7 +105,7 @@ function buildRollup(packages) {
    );
  }
- 
+
 -const bundles = ["packages/babel-parser"];
 +const bundles = [];
- 
+
  gulp.task("build-rollup", () => buildRollup(bundles));
  gulp.task("build-babel", () => buildBabel(/* exclude */ bundles));
 diff --git a/Makefile b/Makefile
@@ -36,28 +36,28 @@ index 2c077a3fb..dfa6ff5e7 100644
 @@ -129,7 +129,9 @@ test-only:
  	BABEL_ENV=test ./scripts/test.sh
  	$(MAKE) test-clean
- 
+
 -test: lint test-only
 +test:
 +	make bootstrap
 +	make test-only
- 
+
  test-ci: jest-ci
- 
+
 @@ -207,7 +209,14 @@ endif
  	rm -f .npmrc
  	$(MAKE) clean
- 
+
 -bootstrap-only: lerna-bootstrap
 +bootstrap-only: clean-all
 +	yarn --ignore-engines
-+	yarn link sucrase
-+	yarn link @sucrase/gulp-plugin
-+	yarn link @sucrase/jest-plugin
-+	yarn link @sucrase/webpack-loader
-+	yarn link @sucrase/webpack-object-rest-spread-plugin
++	yarn link hacklang-sucrase
++	yarn link hacklang-sucrase-gulp-plugin
++	yarn link hacklang-sucrase-jest-plugin
++	yarn link hacklang-sucrase-webpack-loader
++	yarn link hacklang-sucrase-webpack-object-rest-spread-plugin
 +	./node_modules/.bin/lerna bootstrap
- 
+
  yarn-install: clean-all
  	yarn --ignore-engines
 diff --git a/package.json b/package.json
@@ -69,7 +69,7 @@ index a420748f1..7678c4796 100644
    },
    "jest": {
 +    "transform": {
-+      ".js": "@sucrase/jest-plugin"
++      ".js": "hacklang-sucrase-jest-plugin"
 +    },
      "collectCoverageFrom": [
        "packages/*/src/**/*.mjs",
@@ -79,7 +79,7 @@ index d92699883..2bdedecaa 100644
 --- a/packages/babel-parser/src/util/scopeflags.js
 +++ b/packages/babel-parser/src/util/scopeflags.js
 @@ -2,18 +2,20 @@
- 
+
  // Each scope gets a bitset that may contain these flags
  // prettier-ignore
 -export const SCOPE_OTHER        = 0b0000000000,
@@ -108,11 +108,11 @@ index d92699883..2bdedecaa 100644
 +export const SCOPE_CLASS        = 0b0100000000;
 +export const SCOPE_TS_MODULE    = 0b1000000000;
 +export const SCOPE_VAR = SCOPE_PROGRAM | SCOPE_FUNCTION | SCOPE_TS_MODULE;
- 
+
  export type ScopeFlags =
    | typeof SCOPE_OTHER
 @@ -38,39 +40,39 @@ export function functionFlags(isAsync: boolean, isGenerator: boolean) {
- 
+
  // These flags are meant to be _only_ used inside the Scope class (or subclasses).
  // prettier-ignore
 -export const BIND_KIND_VALUE           = 0b00000_0000_01,
@@ -140,7 +140,7 @@ index d92699883..2bdedecaa 100644
 +export const BIND_FLAGS_TS_ENUM        = 0b00100_0000_00;
 +export const BIND_FLAGS_TS_CONST_ENUM  = 0b01000_0000_00;
 +export const BIND_FLAGS_TS_EXPORT_ONLY = 0b10000_0000_00;
- 
+
  // These flags are meant to be _only_ used by Scope consumers
  // prettier-ignore
  /*                              =    is value?    |    is type?    |      scope          |    misc flags    */
@@ -166,12 +166,12 @@ index d92699883..2bdedecaa 100644
 -             BIND_OUTSIDE       = BIND_KIND_VALUE | 0              | 0                   | BIND_FLAGS_NONE   ,
 +export const BIND_NONE          = 0               | 0              | 0                   | BIND_FLAGS_NONE   ;
 +export const BIND_OUTSIDE       = BIND_KIND_VALUE | 0              | 0                   | BIND_FLAGS_NONE   ;
- 
+
 -             BIND_TS_CONST_ENUM = BIND_TS_ENUM | BIND_FLAGS_TS_CONST_ENUM,
 -             BIND_TS_NAMESPACE  = 0               | 0              | 0            | BIND_FLAGS_TS_EXPORT_ONLY;
 +export const BIND_TS_CONST_ENUM = BIND_TS_ENUM | BIND_FLAGS_TS_CONST_ENUM;
 +export const BIND_TS_NAMESPACE  = 0               | 0              | 0            | BIND_FLAGS_TS_EXPORT_ONLY;
- 
+
  export type BindingTypes =
    | typeof BIND_NONE
 diff --git a/packages/babel-plugin-proposal-dynamic-import/test/fixtures/commonjs/to-string/input.js b/packages/babel-plugin-proposal-dynamic-import/test/fixtures/commonjs/to-string/input.js
@@ -199,7 +199,7 @@ index 204120c62..1950ebc1c 100644
 -    });
 +    }, null, null, null, Promise);
    };
- 
+
    _proto.test2 =
 diff --git a/packages/babel-plugin-transform-dotall-regex/test/fixtures/dotall-regex/with-unicode-property-escape/output.js b/packages/babel-plugin-transform-dotall-regex/test/fixtures/dotall-regex/with-unicode-property-escape/output.js
 index a8ddf757d..c00aa15a9 100644
@@ -234,7 +234,7 @@ index aa1b4639f..cca92db5a 100644
 +      "instead to bypass the warning."
    );
  }
- 
+
 diff --git a/packages/babel-preset-env/test/fixtures.js b/packages/babel-preset-env/test/fixtures.js
 deleted file mode 100644
 index 1b534b8fc..000000000
@@ -254,7 +254,7 @@ index 73c1f7db2..59c35bfcf 100644
  const uglify = require("gulp-uglify");
 +const ObjectRestSpreadPlugin = require("@sucrase/webpack-object-rest-spread-plugin");
 +
- 
+
  function webpackBuild(opts) {
    const plugins = opts.plugins || [];
 @@ -41,12 +43,8 @@ function webpackBuild(opts) {

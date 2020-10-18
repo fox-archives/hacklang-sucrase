@@ -40,7 +40,7 @@ async function main(): Promise<void> {
   for (const integration of INTEGRATIONS) {
     process.chdir(`./integrations/${integration}`);
     await run("yarn");
-    await run("yarn link sucrase");
+    await run("yarn link hacklang-sucrase");
     await run("yarn link");
     process.chdir(originalCwd);
   }
@@ -91,9 +91,9 @@ async function runProject(project: string, shouldSave: boolean): Promise<boolean
   }
 
   await run("yarn");
-  await run("yarn link sucrase");
+  await run("yarn link hacklang-sucrase");
   for (const integration of INTEGRATIONS) {
-    await run(`yarn link @sucrase/${integration}`);
+    await run(`yarn link hacklang-sucrase-${integration}`);
   }
 
   let passed = true;

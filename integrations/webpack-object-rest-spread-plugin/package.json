@@ -1,5 +1,5 @@
 {
-  "name": "@sucrase/webpack-object-rest-spread-plugin",
+  "name": "hacklang-sucrase-webpack-object-rest-spread-plugin",
   "version": "1.0.1",
   "description": "Webpack plugin to enable object rest/spread syntax",
   "main": "dist/index.js",

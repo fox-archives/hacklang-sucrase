@@ -1,5 +1,5 @@
 {
-  "name": "@sucrase/jest-plugin",
+  "name": "hacklang-sucrase-jest-plugin",
   "version": "2.0.0",
   "description": "Jest plugin for Sucrase",
   "main": "dist/index.js",

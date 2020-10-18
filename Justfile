@@ -11,3 +11,7 @@ test:
 	node examples/sucrase-cli/input.js
 	cd examples/webpack && yarn webpack
 	cd examples/create-react-app && yarn start
+
+publish:
+	yarn publish
+	cd integrations/

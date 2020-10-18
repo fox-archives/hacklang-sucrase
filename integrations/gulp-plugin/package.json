@@ -1,5 +1,5 @@
 {
-  "name": "@sucrase/gulp-plugin",
+  "name": "hacklang-sucrase-gulp-plugin",
   "version": "2.0.0",
   "description": "Gulp plugin for Sucrase",
   "author": "Alan Pierce <alangpierce@gmail.com>",
