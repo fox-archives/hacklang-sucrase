@@ -20,8 +20,8 @@ See `./examples/` to use it with webpack, with a node project (coming soon) or w
 git clone https://github.com/eankeen/hacklang-sucrase
 cd hacklang-sucrase
 
-yarn i
-yarn i -D tslib
+yarn install
+yarn install -D tslib
 yarn generate
 yarn build
 ```
