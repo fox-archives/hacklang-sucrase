@@ -61,7 +61,7 @@ node examples/sucrase-cli/input.js
 
 8. Commit changes and make a PR 😝
 
-Note that although the setup for above should work for most of the keywords, entities such as `=`, `super()`, `constructor()` and possibly `this` may require a custom transformation under `src/parser/transformers/HacklangTransformer.ts`
+Note that although the setup for above should work for most of the keywords, entities such as `=`, `super()`, `constructor()` and possibly `this` may require a custom transformation under `src/transformers/HacklangTransformer.ts`
 
 ## Roadmap
 
