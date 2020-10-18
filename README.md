@@ -17,7 +17,7 @@ See `./examples/` to use it with webpack, with a node project (coming soon) or w
 ### Setup
 
 ```sh
-git clone https://github.com/eankeen/hacklang-sucrose
+git clone https://github.com/eankeen/hacklang-sucrase
 cd hacklang-sucrase
 
 yarn i
