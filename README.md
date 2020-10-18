@@ -21,7 +21,6 @@ git clone https://github.com/eankeen/hacklang-sucrase
 cd hacklang-sucrase
 
 yarn install
-yarn install -D tslib
 yarn generate
 yarn build
 ```
